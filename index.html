@@ -1,8 +1,38 @@
+<!-- https://gist.github.com/dmerand/4ca44c2c34de1cb39a6a -->
 <!DOCTYPE html>
-<html style="width: 100%; height: 100%;">
+<html>
 <head>
-  <title>brunorios.com.br</title>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script>
+  $(function() {
+    var xhr = $.get("http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat");
+    xhr.done(function(data) {
+      $('.gif-bg').css('background-image', 'url(' + data.data.image_url + ')');
+    });
+  });
+  </script>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      margin: 0;
+    }
+    .gif-bg {
+      background:url('') no-repeat center center;
+      width:100%;
+      height:100%;
+      background-size:cover;
+      position:absolute
+    }
+  </style>
 </head>
-<body style="background-image: url(https://media.giphy.com/media/rCAVWjzASyNlm/giphy.gif); background-size: cover; background-position: center center;">
+<body>
+
+<div class="gif-bg">
+</div>
+
 </body>
 </html>
